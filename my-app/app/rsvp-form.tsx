@@ -9,11 +9,44 @@ const labelClass = "block text-base font-medium leading-snug text-[#585858]";
 
 export default function RsvpForm() {
   const [hasDietaryRequirements, setHasDietaryRequirements] = useState("");
+  const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">(
+    "idle",
+  );
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("saving");
+    const formData = new FormData(event.currentTarget);
+    const payload = {
+      fullName: formData.get("fullName"),
+      familySide: formData.get("familySide"),
+      adults: Number(formData.get("adults")),
+      childrenUnder11: Number(formData.get("childrenUnder11")),
+      childrenUnder2: Number(formData.get("childrenUnder2")),
+      dietaryRequirements: formData.get("dietaryRequirements"),
+      mealOption: formData.getAll("mealOption"),
+      allergies: formData.get("allergies"),
+    };
+    try {
+      const response = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+      setStatus("saved");
+    } catch {
+      setStatus("error");
+    }
+  }
+
 
   return (
     <form
       className="mt-8 flex w-full max-w-full flex-col gap-5 sm:mt-12 sm:gap-6"
-      onSubmit={(event) => event.preventDefault()}
+      onSubmit={handleSubmit}
     >
       <label className={labelClass}>
         What is your full name?
@@ -131,16 +164,21 @@ export default function RsvpForm() {
       )}
 
       <label className={labelClass}>
-        Are there any allergies?
+        Do you or your guest have any allergies? If so, please list them.
         <input type="text" name="allergies" className={fieldClass} />
       </label>
 
+      {status === "saved" && <p>Thank you, your RSVP has been received, we look forward to seeing you there!</p>}
+      {status === "error" && <p>Something went wrong. Please try again.</p>}
+
       <button
         type="submit"
+        disabled={status === "saving"}
         className="mt-2 min-h-12 w-full rounded-full bg-foreground px-5 text-base font-medium text-background transition-colors hover:bg-[#383838] sm:w-auto"
       >
-        Submit RSVP
+        {status === "saving" ? "Sending..." : "Submit RSVP"}
       </button>
+
     </form>
   );
 }
