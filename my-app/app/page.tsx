@@ -3,8 +3,8 @@ import RsvpForm from "./rsvp-form";
 
 export default function Home() {
   return (
-    <div className="flex min-h-dvh w-full flex-col items-center bg-zinc-50 font-sans overflow-x-hidden">
-      <main className="flex w-full max-w-3xl flex-col items-center bg-white px-4 py-8 pt-[max(2rem,env(safe-area-inset-top))] pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-8 sm:py-16 md:px-16 md:py-24">
+    <div className="flex min-h-dvh w-full flex-col items-center bg-[#faf0e6] font-sans overflow-x-hidden">
+      <main className="flex w-full max-w-3xl flex-col items-center bg-[#faf0e6] px-4 py-8 pt-[max(2rem,env(safe-area-inset-top))] pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-8 sm:py-16 md:px-16 md:py-24">
         <Image
           className="h-auto w-full max-w-full rounded-lg drop-shadow-lg"
           src="/images/invite-front.JPG"
