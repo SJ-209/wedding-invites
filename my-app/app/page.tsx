@@ -16,7 +16,7 @@ export default function Home() {
         />
         <Image
           className="mt-6 h-auto w-full max-w-full rounded-lg drop-shadow-lg sm:mt-8"
-          src="/images/invite-rear.JPG"
+          src="/images/invite-rear-2.PNG"
           alt="Wedding Invitation Back"
           width={3000}
           height={100}
