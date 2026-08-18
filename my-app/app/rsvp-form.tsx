@@ -42,7 +42,6 @@ export default function RsvpForm() {
     }
   }
 
-
   return (
     <form
       className="mt-8 flex w-full max-w-full flex-col gap-5 sm:mt-12 sm:gap-6"
@@ -61,7 +60,12 @@ export default function RsvpForm() {
 
       <label className={labelClass}>
         What side of the family are you from?
-        <select name="familySide" required defaultValue="" className={fieldClass}>
+        <select
+          name="familySide"
+          required
+          defaultValue=""
+          className={fieldClass}
+        >
           <option value="" disabled>
             Select an option
           </option>
@@ -168,7 +172,12 @@ export default function RsvpForm() {
         <input type="text" name="allergies" className={fieldClass} />
       </label>
 
-      {status === "saved" && <p>Thank you, your RSVP has been received, we look forward to seeing you there!</p>}
+      {status === "saved" && (
+        <p>
+          Thank you, your RSVP has been received, we look forward to seeing you
+          there!
+        </p>
+      )}
       {status === "error" && <p>Something went wrong. Please try again.</p>}
 
       <button
@@ -178,7 +187,6 @@ export default function RsvpForm() {
       >
         {status === "saving" ? "Sending..." : "Submit RSVP"}
       </button>
-
     </form>
   );
 }
