@@ -6,11 +6,13 @@ const items = [
   { href: "/the-day", label: "The Day", lines: ["The", "Day"] },
   { href: "/dress-code", label: "Dress Code", lines: ["Dress", "Code"] },
   { href: "/travel", label: "Travel", lines: ["Travel"] },
+  { href: "/accommodation", label: "Accommodation", lines: ["Accommodation"] },
   {
     href: "/guest-information",
     label: "Guest Information",
     lines: ["Guest", "Information"],
   },
+  { href: "/menu", label: "Menu", lines: ["Menu"] },
   { href: "/rsvp", label: "RSVP", lines: ["RSVP"] },
 ] as const;
 

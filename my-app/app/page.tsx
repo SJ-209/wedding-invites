@@ -1,7 +1,5 @@
 import { Cormorant_Garamond, Great_Vibes } from "next/font/google";
-import Image from "next/image";
 import Link from "next/link";
-import RsvpForm from "./rsvp-form";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -24,7 +22,9 @@ export default function Home() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-3 border border-[#d9d0c4] sm:inset-5"
         />
-        <div className={`${cormorant.className} relative flex max-w-xl flex-col items-center`}>
+        <div
+          className={`${cormorant.className} relative flex max-w-xl flex-col items-center`}
+        >
           <p className={labelClass}>Together with their families</p>
           <h1
             className={`${script.className} mt-6 text-6xl leading-none text-[#1a1a1a] sm:mt-8 sm:text-8xl`}
@@ -43,7 +43,9 @@ export default function Home() {
             <br />
             Two thousand and twenty-seven
           </p>
-          <p className={`${labelClass} mt-6 max-w-[16.5rem] sm:mt-8 sm:max-w-xl`}>
+          <p
+            className={`${labelClass} mt-6 max-w-[16.5rem] sm:mt-8 sm:max-w-xl`}
+          >
             The Tithe Barn
             <br />
             Bolton Abbey

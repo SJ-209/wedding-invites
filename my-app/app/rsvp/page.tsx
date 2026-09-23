@@ -1,5 +1,5 @@
 // import { Cormorant_Garamond, Great_Vibes } from "next/font/google";
-import Image from "next/image";
+// import Image from "next/image";
 import RsvpForm from "../rsvp-form";
 
 // const cormorant = Cormorant_Garamond({
