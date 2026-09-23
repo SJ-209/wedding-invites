@@ -1,5 +1,3 @@
-
-
 const notes = [
   {
     title: "Unplugged ceremony",
@@ -30,9 +28,7 @@ function Diamond() {
 
 export default function GuestInformationPage() {
   return (
-    <main
-      className="font-serif flex-1 bg-[#faf0e6] px-5 pt-10 pb-[max(4rem,env(safe-area-inset-bottom))] sm:px-8 sm:pt-14"
-    >
+    <main className="font-serif flex-1 bg-[#faf0e6] px-5 pt-10 pb-[max(4rem,env(safe-area-inset-bottom))] sm:px-8 sm:pt-14">
       <div className="mx-auto w-full max-w-2xl text-center">
         <p className="text-[11px] font-medium tracking-[0.28em] text-[#b3a89c] uppercase">
           Extra details

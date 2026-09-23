@@ -17,8 +17,7 @@ export const viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-    >
+    <html>
       <body className="flex min-h-full flex-col">
         <SiteNav />
         {children}
