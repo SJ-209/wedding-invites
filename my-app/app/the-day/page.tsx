@@ -10,7 +10,7 @@ const events = [
     time: "1:30 PM",
     dateTime: "2027-06-23T13:30",
     title: "Guests & Registrar Arrive",
-    marked: true,
+    marked: false,
   },
   {
     time: "2:00 PM",
@@ -22,7 +22,7 @@ const events = [
     time: "2:30 PM",
     dateTime: "2027-06-23T14:30",
     title: "Drinks Reception & Bar Opens",
-    marked: true,
+    marked: false,
   },
   {
     time: "4:00 PM",
@@ -52,7 +52,7 @@ const events = [
     time: "11:45 PM",
     dateTime: "2027-06-23T23:45",
     title: "Carriages",
-    marked: true,
+    marked: false,
   },
 ] as const;
 

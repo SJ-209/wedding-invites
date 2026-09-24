@@ -5,7 +5,7 @@ export default function MenuPage() {
     <main className="flex flex-1 justify-center bg-[#faf0e6] px-4 pt-6 pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-8 sm:pt-10 sm:pb-16">
       <h1 className="sr-only">Menu</h1>
       <Image
-        src="/images/menu.PNG"
+        src="/images/menu2.PNG"
         alt="Wedding menu, including starters, mains, sides, dessert and evening food."
         width={1024}
         height={1536}

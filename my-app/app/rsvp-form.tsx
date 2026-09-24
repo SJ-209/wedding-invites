@@ -1,14 +1,45 @@
 "use client";
 
+import { Source_Serif_4 } from "next/font/google";
 import { useState } from "react";
 
-const fieldClass =
-  "mt-2 min-h-11 w-full rounded-lg border border-black/[.08] bg-[#faf0e6] px-3 py-2.5 text-base text-[#585858] outline-none transition-colors focus:border-black/40";
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
 
-const labelClass = "block text-base font-medium leading-snug text-[#585858]";
+const fieldClass =
+  "mt-2 w-full border border-[#d9d0c4] bg-[#f7f3ee] px-3 py-3 text-base text-[#1c1c1c] outline-none placeholder:text-[#b3a89c] focus:border-[#1c1c1c]";
+
+const labelClass =
+  "block text-[0.68rem] font-medium tracking-[0.18em] text-[#1c1c1c] uppercase";
+
+const mealOptions = [
+  {
+    value: "no-preference",
+    title: "No preference",
+    description: "Beef, chicken and vegan dishes are all suitable.",
+  },
+  {
+    value: "chicken",
+    title: "Chicken",
+    description: "Only chicken and vegan dishes are suitable.",
+  },
+  {
+    value: "vegan",
+    title: "Vegan",
+    description: "Plant based (Vegan) dishes only.",
+  },
+  {
+    value: "mixed",
+    title: "Mixed preferences",
+    description:
+      "Please specify the meal preferences for each guest below. For example: 2 no preference, 1 chicken, 1 vegan.",
+  },
+] as const;
 
 export default function RsvpForm() {
-  const [hasDietaryRequirements, setHasDietaryRequirements] = useState("");
+  const [mealPreference, setMealPreference] = useState("");
   const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">(
     "idle",
   );
@@ -21,10 +52,10 @@ export default function RsvpForm() {
       fullName: formData.get("fullName"),
       familySide: formData.get("familySide"),
       adults: Number(formData.get("adults")),
-      childrenUnder11: Number(formData.get("childrenUnder11")),
-      childrenUnder2: Number(formData.get("childrenUnder2")),
-      dietaryRequirements: formData.get("dietaryRequirements"),
-      mealOption: formData.getAll("mealOption"),
+      childrenUnder11: Number(formData.get("childrenUnder11") || 0),
+      childrenUnder2: Number(formData.get("childrenUnder2") || 0),
+      dietaryRequirements: mealPreference,
+      mealOption: formData.get("mealDetails") ?? "",
       allergies: formData.get("allergies"),
     };
     try {
@@ -44,22 +75,33 @@ export default function RsvpForm() {
 
   return (
     <form
-      className="mt-8 flex w-full max-w-full flex-col gap-5 sm:mt-12 sm:gap-6"
+      className={`${sourceSerif.className} flex w-full flex-col`}
       onSubmit={handleSubmit}
     >
-      <label className={labelClass}>
-        What is your full name?
+      <p className="text-[11px] font-medium tracking-[0.28em] text-[#b3a89c] uppercase">
+        RSVP
+      </p>
+      <h1 className="mt-3 text-[2.65rem] leading-[1.05] font-normal tracking-[-0.02em] text-[#1c1c1c]">
+        Your Details
+      </h1>
+      <p className="mt-3 text-lg text-[#1c1c1c]">
+        Please let us know a few details below.
+      </p>
+
+      <label className={`${labelClass} mt-8`}>
+        Full name
         <input
           type="text"
           name="fullName"
           required
           autoComplete="name"
+          placeholder="Your full name"
           className={fieldClass}
         />
       </label>
 
-      <label className={labelClass}>
-        What side of the family are you from?
+      <label className={`${labelClass} mt-5`}>
+        Side of the family
         <select
           name="familySide"
           required
@@ -74,116 +116,132 @@ export default function RsvpForm() {
         </select>
       </label>
 
-      <label className={labelClass}>
-        How many adults including yourself?
+      <label className={`${labelClass} mt-5`}>
+        Number of adults
         <input
           type="number"
           name="adults"
           min={1}
           required
+          placeholder="e.g. 2"
           className={fieldClass}
         />
       </label>
 
-      <label className={labelClass}>
-        How many children under 11?
-        <input
-          type="number"
-          name="childrenUnder11"
-          min={0}
-          required
-          className={fieldClass}
-        />
-      </label>
+      <div className="mt-5 grid grid-cols-2 gap-4">
+        <label className={labelClass}>
+          Children under 11
+          <input
+            type="number"
+            name="childrenUnder11"
+            min={0}
+            placeholder="e.g. 1"
+            className={fieldClass}
+          />
+        </label>
+        <label className={labelClass}>
+          Children under 2
+          <input
+            type="number"
+            name="childrenUnder2"
+            min={0}
+            placeholder="e.g. 1"
+            className={fieldClass}
+          />
+        </label>
+      </div>
 
-      <label className={labelClass}>
-        How many children under 2?
-        <input
-          type="number"
-          name="childrenUnder2"
-          min={0}
-          required
-          className={fieldClass}
-        />
-      </label>
+      <p className="mt-10 text-[11px] font-medium tracking-[0.28em] text-[#b3a89c] uppercase">
+        Dietary requirements
+      </p>
+      <h2 className="mt-3 text-[2.15rem] leading-tight font-normal tracking-[-0.02em] text-[#1c1c1c]">
+        Meal Preferences
+      </h2>
+      <p className="mt-3 text-lg leading-snug text-[#1c1c1c]">
+        Please select the option that best describes the meal preferences for
+        you and your guests.
+      </p>
 
-      <fieldset>
-        <legend className={labelClass}>
-          Do you or your guest have any dietary requirements?
-        </legend>
-        <div className="mt-3 flex gap-8">
-          <label className="flex min-h-11 items-center gap-2 text-base text-black">
-            <input
-              type="radio"
-              name="dietaryRequirements"
-              value="yes"
-              required
-              checked={hasDietaryRequirements === "yes"}
-              onChange={() => setHasDietaryRequirements("yes")}
-              className="size-5"
-            />
-            Yes
-          </label>
-          <label className="flex min-h-11 items-center gap-2 text-base text-black">
-            <input
-              type="radio"
-              name="dietaryRequirements"
-              value="no"
-              required
-              checked={hasDietaryRequirements === "no"}
-              onChange={() => setHasDietaryRequirements("no")}
-              className="size-5"
-            />
-            No
-          </label>
-        </div>
+      <fieldset className="mt-5 flex flex-col gap-3">
+        <legend className="sr-only">Meal preferences</legend>
+        {mealOptions.map((option) => {
+          const selected = mealPreference === option.value;
+          return (
+            <label
+              key={option.value}
+              className={`border px-4 py-4 ${
+                selected ? "border-[#1c1c1c]" : "border-[#d9d0c4]"
+              }`}
+            >
+              <span className="flex items-start gap-3">
+                <input
+                  type="radio"
+                  name="mealPreference"
+                  value={option.value}
+                  required
+                  checked={selected}
+                  onChange={() => setMealPreference(option.value)}
+                  className="mt-1 size-5 accent-[#1c1c1c]"
+                />
+                <span>
+                  <span className="block text-lg text-[#1c1c1c]">
+                    {option.title}
+                  </span>
+                  <span className="mt-1 block text-base leading-snug text-[#4a4a4a]">
+                    {option.description}
+                  </span>
+                </span>
+              </span>
+              {option.value === "mixed" && selected && (
+                <textarea
+                  name="mealDetails"
+                  required
+                  rows={3}
+                  placeholder="Please provide details here..."
+                  className={`${fieldClass} mt-4`}
+                />
+              )}
+            </label>
+          );
+        })}
       </fieldset>
 
-      {hasDietaryRequirements === "yes" && (
-        <fieldset>
-          <legend className={labelClass}>
-            Are you eating the chicken or vegan option?
-          </legend>
-          <div className="mt-3 flex flex-col gap-1">
-            <label className="flex min-h-11 items-center gap-2 text-base text-black">
-              <input
-                type="checkbox"
-                name="mealOption"
-                value="chicken"
-                className="size-5"
-              />
-              Chicken
-            </label>
-            <label className="flex min-h-11 items-center gap-2 text-base text-black">
-              <input
-                type="checkbox"
-                name="mealOption"
-                value="vegan"
-                className="size-5"
-              />
-              Vegan
-            </label>
-          </div>
-        </fieldset>
-      )}
-
-      <label className={labelClass}>
-        Do you or your guest have any allergies? If so, please list them.
-        <input type="text" name="allergies" className={fieldClass} />
+      <p className="mt-10 text-[11px] font-medium tracking-[0.28em] text-[#b3a89c] uppercase">
+        Allergies
+      </p>
+      <h2 className="mt-3 text-[2.15rem] leading-tight font-normal tracking-[-0.02em] text-[#1c1c1c]">
+        Any allergies?
+      </h2>
+      <p className="mt-3 text-lg text-[#1c1c1c]">
+        If yes, please list them below.
+      </p>
+      <label className="sr-only" htmlFor="allergies">
+        Allergies
       </label>
+      <input
+        id="allergies"
+        type="text"
+        name="allergies"
+        placeholder="e.g. nuts, shellfish, etc."
+        className={fieldClass}
+      />
 
       {status === "saved" && (
-        <p>
-          Thank you, your RSVP has been received, we look forward to seeing you
-          there!
+        <p className="mt-6 text-lg text-[#1c1c1c]">
+          Thank you, your RSVP has been received. We look forward to seeing you
+          there.
         </p>
       )}
-      {status === "error" && <p>Something went wrong. Please try again.</p>}
+      {status === "error" && (
+        <p className="mt-6 text-lg text-[#1c1c1c]">
+          Something went wrong. Please try again.
+        </p>
+      )}
 
       <button
         type="submit"
         disabled={status === "saving"}
-        className="mt-2 min-h-12 w-full rounded-full bg-foreground px-5 text-base font-medium text-background transition-colors hover:bg-[#383838] sm:w-auto"
+        className="mt-8 min-h-12 w-full bg-[#1c1c1c] px-5 text-[0.72rem] font-medium tracking-[0.22em] text-[#f7f3ee] uppercase transition-opacity hover:opacity-80 disabled:opacity-60"
       >
         {status === "saving" ? "Sending..." : "Submit RSVP"}
       </button>

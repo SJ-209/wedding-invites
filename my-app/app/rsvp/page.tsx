@@ -18,7 +18,7 @@ import RsvpForm from "../rsvp-form";
 export default function Home() {
   return (
     <div className="flex w-full flex-1 flex-col overflow-x-hidden bg-[#f7f3ee]">
-      <main className="flex w-full flex-col items-center px-4 pt-4 pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-8 sm:pb-16 md:px-16 md:pb-24">
+      <main className="flex w-full flex-col items-center px-5 pt-8 pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-8 sm:pt-12 sm:pb-16">
         {/* <Image
           className="mt-6 h-auto w-full max-w-3xl rounded-lg drop-shadow-lg sm:mt-8"
           src="/images/invite-rear-2.PNG"
@@ -27,7 +27,7 @@ export default function Home() {
           height={100}
           sizes="(max-width: 768px) 100vw, 768px"
         /> */}
-        <div className="w-full max-w-3xl">
+        <div className="w-full max-w-xl">
           <RsvpForm />
         </div>
       </main>

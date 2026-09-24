@@ -1,4 +1,5 @@
 import { Source_Serif_4 } from "next/font/google";
+import Image from "next/image";
 
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
@@ -23,21 +24,6 @@ const taxis = [
   },
 ] as const;
 
-function Diamond() {
-  return (
-    <svg
-      viewBox="0 0 12 12"
-      aria-hidden="true"
-      className="mx-auto h-2.5 w-2.5 text-[#c2b29a]"
-    >
-      <path
-        d="M6 0.4 7.15 4.85 11.6 6 7.15 7.15 6 11.6 4.85 7.15 0.4 6 4.85 4.85Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
-
 export default function TravelPage() {
   return (
     <main
@@ -60,10 +46,16 @@ export default function TravelPage() {
               key={taxi.tel}
               className="border-b border-[#d9d0c4] px-6 py-8 text-center last:border-b-0 sm:py-10"
             >
-              <Diamond />
-              <p className="mt-4 text-[1.65rem] leading-tight text-[#1c1c1c] sm:text-3xl">
+              <p className="text-[1.65rem] leading-tight text-[#1c1c1c] sm:text-3xl">
                 {taxi.name}
               </p>
+              {/* <Image
+                src="/images/clover2.png"
+                alt=""
+                width={250}
+                height={150}
+                className="mx-auto mt-4 h-5 w-auto"
+              /> */}
               <a
                 href={`tel:${taxi.tel}`}
                 className="mt-3 inline-block text-lg tracking-[0.08em] text-[#1c1c1c] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1c1c1c] sm:text-xl"

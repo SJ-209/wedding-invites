@@ -25,8 +25,8 @@ describe("POST /api/rsvp", () => {
         adults: 2,
         childrenUnder11: 0,
         childrenUnder2: 0,
-        dietaryRequirements: "no",
-        mealOption: [],
+        dietaryRequirements: "no-preference",
+        mealOption: "",
         allergies: "",
       }),
     });
