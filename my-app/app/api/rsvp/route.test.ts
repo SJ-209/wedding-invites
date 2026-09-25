@@ -25,8 +25,10 @@ describe("POST /api/rsvp", () => {
         adults: 2,
         childrenUnder11: 0,
         childrenUnder2: 0,
-        dietaryRequirements: "no-preference",
-        mealOption: "",
+        mealPreference: "no-preference",
+        noPreferenceCount: 0,
+        chickenMealCount: 0,
+        veganMealCount: 0,
         allergies: "",
       }),
     });

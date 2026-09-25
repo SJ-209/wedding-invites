@@ -63,11 +63,10 @@ export default function RsvpForm() {
       adults: Number(formData.get("adults")),
       childrenUnder11: Number(formData.get("childrenUnder11") || 0),
       childrenUnder2: Number(formData.get("childrenUnder2") || 0),
-      dietaryRequirements: mealPreference,
-      mealOption:
-        mealPreference === "mixed"
-          ? `No preference: ${noPreference}, Chicken Meal: ${chickenMeal}, Vegan Meal: ${veganMeal}`
-          : "",
+      mealPreference,
+      noPreferenceCount: mealPreference === "mixed" ? noPreference : 0,
+      chickenMealCount: mealPreference === "mixed" ? chickenMeal : 0,
+      veganMealCount: mealPreference === "mixed" ? veganMeal : 0,
       allergies: formData.get("allergies"),
     };
     try {

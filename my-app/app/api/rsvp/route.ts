@@ -15,27 +15,31 @@ export async function POST(request: Request) {
   const sql = neon(databaseUrl);
 
   await sql`
-    INSERT INTO rsvps (
-      full_name,
-      family_side,
-      adults,
-      children_under_11,
-      children_under_2,
-      dietary_requirements,
-      meal_option,
-      allergies
-    )
-    VALUES (
-      ${body.fullName},
-      ${body.familySide},
-      ${body.adults},
-      ${body.childrenUnder11},
-      ${body.childrenUnder2},
-      ${body.dietaryRequirements},
-      ${body.mealOption},
-      ${body.allergies}
-    )
-  `;
+  INSERT INTO rsvps (
+    full_name,
+    family_side,
+    adults,
+    children_under_11,
+    children_under_2,
+    meal_preference,
+    no_preference_count,
+    chicken_meal_count,
+    vegan_meal_count,
+    allergies
+  )
+  VALUES (
+    ${body.fullName},
+    ${body.familySide},
+    ${body.adults},
+    ${body.childrenUnder11},
+    ${body.childrenUnder2},
+    ${body.mealPreference},
+    ${body.noPreferenceCount},
+    ${body.chickenMealCount},
+    ${body.veganMealCount},
+    ${body.allergies}
+  )
+`;
 
   return NextResponse.json({ ok: true });
 }
