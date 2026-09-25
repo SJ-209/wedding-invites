@@ -18,7 +18,7 @@ const mealOptions = [
   {
     value: "no-preference",
     title: "No preference",
-    description: "Beef, chicken and vegan dishes are all suitable.",
+    description: "All dishes are suitable.",
   },
   {
     value: "chicken",
@@ -38,6 +38,12 @@ const mealOptions = [
   },
 ] as const;
 
+const mixedMeals = [
+  { name: "noPreferenceCount", title: "No preference" },
+  { name: "chickenMealCount", title: "Chicken Meal" },
+  { name: "veganMealCount", title: "Vegan Meal" },
+] as const;
+
 export default function RsvpForm() {
   const [mealPreference, setMealPreference] = useState("");
   const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">(
@@ -48,6 +54,9 @@ export default function RsvpForm() {
     event.preventDefault();
     setStatus("saving");
     const formData = new FormData(event.currentTarget);
+    const noPreference = Number(formData.get("noPreferenceCount") || 0);
+    const chickenMeal = Number(formData.get("chickenMealCount") || 0);
+    const veganMeal = Number(formData.get("veganMealCount") || 0);
     const payload = {
       fullName: formData.get("fullName"),
       familySide: formData.get("familySide"),
@@ -55,7 +64,10 @@ export default function RsvpForm() {
       childrenUnder11: Number(formData.get("childrenUnder11") || 0),
       childrenUnder2: Number(formData.get("childrenUnder2") || 0),
       dietaryRequirements: mealPreference,
-      mealOption: formData.get("mealDetails") ?? "",
+      mealOption:
+        mealPreference === "mixed"
+          ? `No preference: ${noPreference}, Chicken Meal: ${chickenMeal}, Vegan Meal: ${veganMeal}`
+          : "",
       allergies: formData.get("allergies"),
     };
     try {
@@ -167,13 +179,13 @@ export default function RsvpForm() {
         {mealOptions.map((option) => {
           const selected = mealPreference === option.value;
           return (
-            <label
+            <div
               key={option.value}
               className={`border px-4 py-4 ${
                 selected ? "border-[#1c1c1c]" : "border-[#d9d0c4]"
               }`}
             >
-              <span className="flex items-start gap-3">
+              <label className="flex items-start gap-3">
                 <input
                   type="radio"
                   name="mealPreference"
@@ -191,17 +203,30 @@ export default function RsvpForm() {
                     {option.description}
                   </span>
                 </span>
-              </span>
+              </label>
               {option.value === "mixed" && selected && (
-                <textarea
-                  name="mealDetails"
-                  required
-                  rows={3}
-                  placeholder="Please provide details here..."
-                  className={`${fieldClass} mt-4`}
-                />
+                <div className="mt-4 flex flex-col gap-3 pl-8">
+                  {mixedMeals.map((meal) => (
+                    <label
+                      key={meal.name}
+                      className="flex items-center justify-between gap-4"
+                    >
+                      <span className="text-lg font-medium text-[#1c1c1c]">
+                        {meal.title}
+                      </span>
+                      <input
+                        type="number"
+                        name={meal.name}
+                        min={0}
+                        required
+                        placeholder="0"
+                        className="w-20 border border-[#d9d0c4] bg-[#f7f3ee] px-3 py-2 text-center text-base text-[#1c1c1c] outline-none placeholder:text-[#b3a89c] focus:border-[#1c1c1c]"
+                      />
+                    </label>
+                  ))}
+                </div>
               )}
-            </label>
+            </div>
           );
         })}
       </fieldset>

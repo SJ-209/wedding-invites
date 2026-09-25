@@ -1,5 +1,5 @@
 import { Source_Serif_4 } from "next/font/google";
-import Image from "next/image";
+// import Image from "next/image";
 
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
