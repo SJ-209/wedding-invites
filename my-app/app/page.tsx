@@ -1,5 +1,6 @@
 import { Cormorant_Garamond, Great_Vibes } from "next/font/google";
 import Link from "next/link";
+import Image from "next/image";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function Home() {
         <div
           className={`${cormorant.className} relative flex max-w-xl flex-col items-center`}
         >
+          <Image src="/images/leaf.png" alt="Leaf" width={900} height={300} />
           <p className={labelClass}>Together with their families</p>
           <h1
             className={`${script.className} mt-6 text-6xl leading-none text-[#1a1a1a] sm:mt-8 sm:text-8xl`}
@@ -59,6 +61,7 @@ export default function Home() {
             Explore our day
             <span aria-hidden="true">↓</span>
           </Link>
+          {/* <Image src="/images/building.png" alt="Building" width={100} height={100} /> */}
         </div>
       </section>
       {/* <main className="flex w-full flex-col items-center px-4 pt-4 pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-8 sm:pb-16 md:px-16 md:pb-24">

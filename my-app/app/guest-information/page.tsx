@@ -11,20 +11,20 @@ const notes = [
   },
 ] as const;
 
-function Diamond() {
-  return (
-    <svg
-      viewBox="0 0 12 12"
-      aria-hidden="true"
-      className="mx-auto h-2.5 w-2.5 text-[#c2b29a]"
-    >
-      <path
-        d="M6 0.4 7.15 4.85 11.6 6 7.15 7.15 6 11.6 4.85 7.15 0.4 6 4.85 4.85Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
+// function Diamond() {
+//   return (
+//     <svg
+//       viewBox="0 0 12 12"
+//       aria-hidden="true"
+//       className="mx-auto h-2.5 w-2.5 text-[#c2b29a]"
+//     >
+//       <path
+//         d="M6 0.4 7.15 4.85 11.6 6 7.15 7.15 6 11.6 4.85 7.15 0.4 6 4.85 4.85Z"
+//         fill="currentColor"
+//       />
+//     </svg>
+//   );
+// }
 
 export default function GuestInformationPage() {
   return (
@@ -42,7 +42,7 @@ export default function GuestInformationPage() {
               key={note.title}
               className="border border-[#d9d0c4] bg-[#f7f3ee] px-6 py-8 text-center sm:px-10 sm:py-10"
             >
-              <Diamond />
+              {/* <Diamond /> */}
               <h2
                 className={`mt-4 text-[1.65rem] leading-tight text-[#1c1c1c] sm:text-3xl ${
                   note.uppercase ? "tracking-[0.08em] uppercase" : ""

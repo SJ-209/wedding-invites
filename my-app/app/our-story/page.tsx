@@ -1,4 +1,5 @@
 import { Source_Serif_4 } from "next/font/google";
+import Image from "next/image";
 
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
@@ -52,12 +53,14 @@ export default function OurStoryPage() {
       className={`${sourceSerif.className} flex-1 bg-[#faf0e6] px-5 pt-6 pb-[max(4rem,env(safe-area-inset-bottom))] sm:px-8 sm:pt-10`}
     >
       <article className="mx-auto w-full max-w-2xl">
-        <figure>
-          <figcaption className="text-base text-[#1c1c1c]">
-            Kri and Sam together
-          </figcaption>
-          <div className="mt-3 aspect-[4/5] w-full border border-[#e4dcd2] bg-[#f7f3ee] sm:aspect-[3/2]" />
-        </figure>
+        {/* Kri and Sam together */}
+        <Image
+          src="/images/krisam.jpg"
+          alt="Kri and Sam"
+          width={1024}
+          height={1536}
+        />
+        {/* <div className="mt-3 aspect-[4/5] w-full border border-[#e4dcd2] bg-[#f7f3ee] sm:aspect-[3/2]" /> */}
 
         <div className="mt-8 border-t border-[#e4dcd2] pt-10 sm:mt-10 sm:pt-12">
           <p className="text-[11px] font-medium tracking-[0.28em] text-[#b3a89c] uppercase">
