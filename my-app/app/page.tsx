@@ -62,7 +62,7 @@ export default function Home() {
             <span aria-hidden="true">↓</span>
           </Link>
           <Image
-            src="/images/tithe.png"
+            src="/images/tithe.PNG"
             alt="Building"
             width={600}
             height={400}
