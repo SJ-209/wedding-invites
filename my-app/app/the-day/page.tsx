@@ -37,13 +37,13 @@ const events = [
     marked: false,
   },
   {
-    time: "8:00 PM",
+    time: "7:30 PM",
     dateTime: "2027-06-23T20:00",
     title: "Cake Cutting & First Dance",
     marked: false,
   },
   {
-    time: "9:30 PM",
+    time: "9:00 PM",
     dateTime: "2027-06-23T21:30",
     title: "Evening Food Served",
     marked: false,

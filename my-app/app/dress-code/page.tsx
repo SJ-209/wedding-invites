@@ -21,18 +21,16 @@ export default function DressCodePage() {
         </h1>
         <div className="mt-10 max-w-xl space-y-6 text-[1.15rem] leading-[1.65] text-[#f3eee6] sm:mt-12 sm:text-xl sm:leading-[1.7]">
           <p>
-            <strong>Ladies:</strong> You are invited to wear elegant occasion
-            wear, with hats or fascinators if you wish.
+            <strong>Ladies:</strong> You are warmly invited to wear your finest elegant occasion attire with hats or fascinators if you wish.
             <br />
           </p>
           <p>
-            <strong>Gentlemen:</strong> You are kindly requested to wear a
-            lounge suit or formal suit.
+            <strong>Gentlemen:</strong> You are kindly invited to wear a
+            lounge suit or formal attire.
             <br />
           </p>
           <p>
-            <strong>For Military Guests:</strong> Those of you who are serving
-            are warmly invited to wear Service Dress or Mess Dress.
+            <strong>For Military Guests:</strong> Serving members are warmly invited to wear Service Dress or Mess Dress.
           </p>
         </div>
       </div>
