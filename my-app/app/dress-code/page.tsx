@@ -21,8 +21,8 @@ export default function DressCodePage() {
         </h1>
         <div className="mt-10 max-w-xl space-y-6 text-[1.15rem] leading-[1.65] text-[#f3eee6] sm:mt-12 sm:text-xl sm:leading-[1.7]">
           <p>
-            <strong>Ladies:</strong> You are warmly invited to wear your finest
-            elegant occasion attire with hats or fascinators if you wish.
+            <strong>Ladies:</strong> You are warmly invited to wear elegant
+            occasion attire with hats or fascinators if you wish.
             <br />
           </p>
           <p>
