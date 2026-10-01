@@ -8,7 +8,7 @@ const sourceSerif = Source_Serif_4({
 
 const paragraphs = [
   "It all started when Kri was posted to 5 Rifles in Germany. On 27 April 2014, she arrived at the battalion and, somehow, news of the new Asian girl arriving travelled fast.",
-  "What Kri probably did not expect was for that news to travel all the way from Germany to the UK, where Sam was on his Recce Commander course. He was not even in Germany, but somehow he had already heard about the new Asian girl who had arrived at battalion. Military gossip clearly travelled faster than anything else.",
+  "What Kri probably did not expect was for that news to travel all the way from Germany to the UK, where Sam was on his military training course. He was not even in Germany, but somehow he had already heard about the new Asian girl who had arrived at battalion. Military gossip clearly travelled faster than anything else.",
   "So Sam slipped into Kri’s Facebook DMs with the exact words: “Heyy! How are you? I noticed you joined our battalion… so thought I’d say hi. Oh and I’m Sam 😊”",
   "Looking back, it was not exactly the most dramatic romantic opening, but it did the job. A few days of talking turned into their first date, which was a run. Kri ended up besting Sam, which he has probably spent the years since trying to forget. We like to think that was either the moment he fell in love or the moment he realised he had met his match.",
   "A few days later, Sam took Kri to Red Card Green Card for a lovely meal. Somewhere between the food, the laughter and the conversation, things started to get a little more serious, and their love story began.",

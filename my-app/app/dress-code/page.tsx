@@ -31,8 +31,8 @@ export default function DressCodePage() {
             <br />
           </p>
           <p>
-            <strong>For Military Guests:</strong> Serving members are warmly
-            invited to wear Service Dress or Mess Dress.
+            <strong>Military Guests:</strong> Serving members are warmly invited
+            to wear Service Dress or Mess Dress.
           </p>
         </div>
       </div>
