@@ -26,7 +26,6 @@ export default function Home() {
         <div
           className={`${cormorant.className} relative flex max-w-xl flex-col items-center`}
         >
-          {/* <Image src="/images/leaf.png" alt="Leaf" width={300} height={300} /> */}
           <p className={labelClass}>Together with their families</p>
           <h1
             className={`${script.className} mt-6 text-6xl leading-none text-[#1a1a1a] sm:mt-8 sm:text-8xl`}
@@ -64,6 +63,7 @@ export default function Home() {
           <Image
             src="/images/tithe.PNG"
             alt="Building"
+            loading="eager"
             width={600}
             height={400}
           />
