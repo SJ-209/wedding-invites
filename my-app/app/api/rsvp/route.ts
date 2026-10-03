@@ -16,15 +16,11 @@ export async function POST(request: Request) {
   const childrenAged11To13 = Number(body.childrenAged11To13 || 0);
   const childrenAged2To10 = Number(body.childrenAged2To10 || 0);
 
-  await sql`ALTER TABLE rsvps ADD COLUMN IF NOT EXISTS children_aged_11_to_13 integer NOT NULL DEFAULT 0`;
-  await sql`ALTER TABLE rsvps ADD COLUMN IF NOT EXISTS children_aged_2_to_10 integer NOT NULL DEFAULT 0`;
-
   await sql`
   INSERT INTO rsvps (
     full_name,
     family_side,
     adults,
-    children_under_11,
     children_aged_11_to_13,
     children_aged_2_to_10,
     children_under_2,
@@ -38,7 +34,6 @@ export async function POST(request: Request) {
     ${body.fullName},
     ${body.familySide},
     ${body.adults},
-    ${childrenAged2To10},
     ${childrenAged11To13},
     ${childrenAged2To10},
     ${body.childrenUnder2},
