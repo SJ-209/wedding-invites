@@ -116,7 +116,8 @@ export default function RsvpForm() {
           role="status"
         >
           Thank you, your RSVP has been received. We look forward to seeing you
-          there.
+          there. If there are any changes to your RSVP do not re submit the
+          form, please contact us.
         </p>
       )}
       {hideForm ? null : (
