@@ -40,11 +40,11 @@ export default function TravelPage() {
           Complimentary parking is available at The Tithe Barn. Should you wish
           to travel by taxi, we recommend the following local services:
         </p>
-        <ul className="mt-8 border border-[#d9d0c4] sm:mt-10">
+        <ul className="mt-8 space-y-4 sm:mt-10">
           {taxis.map((taxi) => (
             <li
               key={taxi.tel}
-              className="border-b border-[#d9d0c4] px-6 py-8 text-center last:border-b-0 sm:py-10"
+              className="border border-[#d9d0c4] bg-[#f7f3ee] px-6 py-7 sm:px-8 drop-shadow-[0_8px_8px_rgba(0,0,0,0.1)] sm:py-8"
             >
               <p className="text-[1.65rem] leading-tight text-[#1c1c1c] sm:text-3xl">
                 {taxi.name}
