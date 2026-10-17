@@ -59,6 +59,7 @@ export default function OurStoryPage() {
           alt="Kri and Sam"
           width={1024}
           height={1536}
+          className="drop-shadow-[0_20px_8px_rgba(0,0,0,0.1)]"
         />
         {/* <div className="mt-3 aspect-[4/5] w-full border border-[#e4dcd2] bg-[#f7f3ee] sm:aspect-[3/2]" /> */}
 

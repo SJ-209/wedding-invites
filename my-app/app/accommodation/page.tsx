@@ -79,7 +79,7 @@ export default function AccommodationPage() {
           {stays.map((stay) => (
             <li
               key={stay.name}
-              className="border border-[#d9d0c4] bg-[#f7f3ee] px-6 py-7 sm:px-8 sm:py-8"
+              className="border border-[#d9d0c4] bg-[#f7f3ee] px-6 py-7 sm:px-8 drop-shadow-[0_8px_8px_rgba(0,0,0,0.1)] sm:py-8"
             >
               <h2 className="text-[1.65rem] leading-tight text-[#1c1c1c] sm:text-3xl">
                 {stay.name}

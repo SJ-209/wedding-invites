@@ -10,7 +10,7 @@ export default function MenuPage() {
         width={1024}
         height={1536}
         priority
-        className="h-auto w-full max-w-2xl"
+        className="h-auto w-full max-w-2xl drop-shadow-[0_20px_8px_rgba(0,0,0,0.1)]"
         sizes="(max-width: 768px) 100vw, 672px"
       />
     </main>

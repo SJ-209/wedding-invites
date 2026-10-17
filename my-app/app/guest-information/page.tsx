@@ -40,7 +40,7 @@ export default function GuestInformationPage() {
           {notes.map((note) => (
             <li
               key={note.title}
-              className="border border-[#d9d0c4] bg-[#f7f3ee] px-6 py-8 text-center sm:px-10 sm:py-10"
+              className="border border-[#d9d0c4] bg-[#f7f3ee] px-6 py-8 text-center drop-shadow-[0_8px_8px_rgba(0,0,0,0.1)] sm:px-10 sm:py-10"
             >
               {/* <Diamond /> */}
               <h2
