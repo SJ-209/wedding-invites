@@ -17,7 +17,7 @@ const paragraphs = [
   "In 2021, after five years of making the distance work, they finally managed to get postings a little closer together, with Kri in Chepstow and Sam in Hereford. It was not quite next door, but it certainly felt like an improvement.",
   "A year later, life changed again when Kri was diagnosed with cancer. Sam became her primary carer and stood beside her throughout her battle, caring for her, supporting her and being there through the hardest days. It was a difficult chapter, but it also showed just how strong they are together.",
   "These days, life is a little less about military postings and a little more about home, family and a certain four legged member of the household. They adopted Ozzy, who quickly made himself at home alongside their other boy, Spencer.",
-  "Now happily settled in their home in Hereford, Kri and Sam are looking forward to the next chapter of their story. After everything they have been through, they know that the best adventures are the ones they take together.",
+  "Kri and Sam are looking forward to the next chapter of their story. After everything they have been through, they know that the best adventures are the ones they take together.",
 ];
 
 function StoryMark() {
